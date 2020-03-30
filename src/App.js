@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Navbar from "./components/navbar/Navbar";
+import "./app.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Detail from "./containers/detail/Detail";
+import Overview from "./containers/overview/Overview";
+import Fail from "./components/error/Fail";
+import SearchList from "./containers/search/SearchList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Route, Switch } from "react-router-dom";
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <Switch>
+          <Route path="/detail/:id" component={Detail} />
+          <Route path="/" exact component={Overview} />
+          <Route path="/list" component={SearchList} />
+          <Route component={Fail} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
