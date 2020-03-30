@@ -1,4 +1,5 @@
 import React from "react";
+import { URL_poster } from "../../config/config";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../assets/images/css/main.css";
 
@@ -7,7 +8,7 @@ const styleFont = { fontFamily: "Playfair Display serif", fontWeight: "bold" };
 //receiving the props from Detail
 const Detailcard = props => (
   <div className="jumbotron">
-    <img src={"https://image.tmdb.org/t/p/w1280" + props.bdp} alt="bgi" />
+    <img src={URL_poster + "w1280" + props.bdp} alt="bgi" />
     <h1 className="display-4">{props.title}</h1>
     <p className="lead">
       <span style={styleFont}>Budget: USD$</span>

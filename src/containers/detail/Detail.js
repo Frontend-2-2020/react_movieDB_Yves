@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { URL_detail, API_key_detail } from "../../config/config";
 import Detailcard from "../../components/detailcard/Detailcard";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
@@ -14,25 +15,22 @@ class Detail extends Component {
 
   //fetching the data for the detail page
   getDetail() {
-    Axios.get(
-      "https://api.themoviedb.org/3/movie/" +
-        this.props.match.params.id +
-        "?api_key=dc37b97357fd291174e896aa7ce44636"
-    ).then(response => {
-      const detailMovie = response.data;
-      console.log(detailMovie);
-      const genre = detailMovie.genres;
-      const prodHouses = detailMovie.production_companies;
-      const voteAverage = detailMovie.vote_average;
+    Axios.get(URL_detail + this.props.match.params.id + API_key_detail).then(
+      response => {
+        const detailMovie = response.data;
+        const genre = detailMovie.genres;
+        const prodHouses = detailMovie.production_companies;
+        const voteAverage = detailMovie.vote_average;
 
-      //Pushing the fetched data into the new state, (initial state is empty)
-      this.setState({
-        details: detailMovie,
-        genres: genre,
-        productionHouses: prodHouses,
-        votes: voteAverage
-      });
-    });
+        //Pushing the fetched data into the new state, (initial state is empty)
+        this.setState({
+          details: detailMovie,
+          genres: genre,
+          productionHouses: prodHouses,
+          votes: voteAverage
+        });
+      }
+    );
   }
   //preventing infinite loop of the this.getDetail method
   componentDidMount() {

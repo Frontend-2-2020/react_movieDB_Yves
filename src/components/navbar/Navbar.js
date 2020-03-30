@@ -1,6 +1,6 @@
 import React from "react";
 import tmdb from "../../assets/images/tmdb.png";
-
+//Basic Bootsrap Navbar || No styling required
 const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

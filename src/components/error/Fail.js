@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+//Component will show an error when there is an invalid url
 const Fail = () => {
   const style = { textAlign: "center", marginTop: "20px" };
   return (
