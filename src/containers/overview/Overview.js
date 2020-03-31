@@ -55,12 +55,6 @@ class Overview extends Component {
           poster={movie.poster_path}
           average={movie.vote_average}
           release={movie.release_date}
-          //fetching the genres
-          genre={movie.genre_ids.map(genId => (
-            <span className="badge badge-dark m-1" key={genId}>
-              {genId}
-            </span>
-          ))}
         />
       </div>
     ));
@@ -79,8 +73,7 @@ class Overview extends Component {
     //const to style the page buttons inline (!!look into pagination later)
     const btnPrev = {
       margin: "20px",
-      color: "green",
-      alignItems: "left"
+      color: "green"
     };
 
     const btnNext = {

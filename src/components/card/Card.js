@@ -23,10 +23,6 @@ const Card = props => (
       <li className="list-group-item">
         <span className="text-info">Released on </span> {props.release}
       </li>
-      <li className="list-group-item">
-        <span className="text-info">Genre Id </span>
-        {props.genre}
-      </li>
     </ul>
     <div className="card-body">
       <Link to={"/detail/" + props.id}>
