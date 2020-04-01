@@ -38,24 +38,23 @@ class Detail extends Component {
   }
 
   render() {
-    const movieDetails = this.state.details;
-    const myGenres = this.state.genres;
-    const productionHouses = this.state.productionHouses;
-    const movieVotes = this.state.votes;
-    console.log(movieVotes);
+    const { details } = this.state;
+    const { genres } = this.state;
+    const { productionHouses } = this.state;
+    const { votes } = this.state;
 
     //passing props to Detailcard component
-    const details = (
+    const detail = (
       <Detailcard
-        title={movieDetails.title}
-        budget={movieDetails.budget}
-        bdp={movieDetails.backdrop_path}
-        overview={movieDetails.overview}
-        release={movieDetails.release_date}
+        title={details.title}
+        budget={details.budget}
+        bdp={details.backdrop_path}
+        overview={details.overview}
+        release={details.release_date}
         //looping trough the vote integer and return the jsx icon
         actualvotes={(() => {
           let darkstars = [];
-          for (let i = 0; i < parseInt(movieVotes); i++) {
+          for (let i = 0; i < parseInt(votes); i++) {
             darkstars.push(<FaStar key={i} />);
           }
           return darkstars;
@@ -63,13 +62,13 @@ class Detail extends Component {
         //total of 10 - number of votes and returning the jsx icon
         restvotes={(() => {
           let blankstars = [];
-          for (let i = 10; i > parseInt(movieVotes); i--) {
+          for (let i = 10; i > parseInt(votes); i--) {
             blankstars.push(<FaRegStar key={i} />);
           }
           return blankstars;
         })()}
         //looping trough the genres and set it as a prop to be passed into the detailcard component
-        gen={myGenres.map(genre => (
+        gen={genres.map(genre => (
           <span className="badge badge-dark m-1" key={genre.name}>
             {genre.name}
           </span>
@@ -83,7 +82,7 @@ class Detail extends Component {
       />
     );
 
-    return <div>{details}</div>;
+    return <div>{detail}</div>;
   }
 }
 

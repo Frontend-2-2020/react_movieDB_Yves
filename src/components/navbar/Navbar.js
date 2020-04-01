@@ -1,19 +1,29 @@
 import React from "react";
 import tmdb from "../../assets/images/tmdb.png";
-//Basic Bootsrap Navbar || No styling required
+import "../../assets/images/css/main.css";
+import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+const linkStyle = {
+  color: "white",
+  fontFamily: "Shadows Into Light",
+  fontSize: "1.9rem"
+};
+
+//Basic Bootsrap Navbar || No styling
 const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <img
         src={tmdb}
-        width="40"
-        height="40"
+        width="50"
+        height="50"
         className="d-inline-block align-top"
         alt="logo"
       />
-      <a className="navbar-brand" href="#null">
-        The Movie Data Base
-      </a>
+      <Link to={"/"} style={linkStyle}>
+        The Movie Data Base <FaHome />
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -25,20 +35,7 @@ const Navbar = props => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home <span className="sr-only">(current)</span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/list">
-              List by Name
-            </a>
-          </li>
-        </ul>
-      </div>
+      <div className="collapse navbar-collapse" id="navbarNav"></div>
     </nav>
   );
 };

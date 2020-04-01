@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Card from "../../components/card/Card";
 import Axios from "axios";
-import { API_key } from "../../config/config";
-import { URL_overviews } from "../../config/config";
+import { API_key, URL_overviews } from "../../config/config";
 import Button from "../../components/button/Button";
 import Spinner from "../../components/spinner/Spinner";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,7 +17,6 @@ class Overview extends Component {
   getMovies() {
     Axios.get(URL_overviews + API_key + "&page=" + this.state.page).then(
       response => {
-        console.log(response.data);
         this.setState({ movies: response.data.results, loading: false });
       }
     );
@@ -65,10 +63,8 @@ class Overview extends Component {
     const loadmovies = (
       <div className="row justify-content-center">{myMovies}</div>
     );
-
     // if else statement ES6
     const pageIsLoaded = currentloadstate ? spin : loadmovies;
-    setTimeout(() => spin, 1000);
 
     //const to style the page buttons inline (!!look into pagination later)
     const btnPrev = {

@@ -25,7 +25,7 @@ const Card = props => (
       </li>
     </ul>
     <div className="card-body">
-      <Link to={"/detail/" + props.id}>
+      <Link to={"/detail/" + props.id + "/" + props.title}>
         <button type="button" className="btn btn-secondary m-1">
           Detail page
         </button>
